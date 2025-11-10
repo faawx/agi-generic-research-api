@@ -11,11 +11,11 @@ System_Boundary(c1, "AGI Deep Research Backend") {
     Container(tools, "External Tools", "Python", "Integrates with external services like Google Search.")
     Container(database, "State", "Python", "Stores research data, agent states, and configurations.")
 
-    Rel(api, langgraph, "Uses", "HTTP/Internal Calls")
+    Rel(api, langgraph, "Uses", "Internal Calls")
     Rel(langgraph, agents, "Orchestrates", "Internal Calls")
     Rel(agents, tools, "Utilizes", "Internal Calls/API Calls")
-    Rel(langgraph, database, "Reads/Writes", "SQL/ORM")
-    Rel(agents, database, "Reads/Writes", "SQL/ORM")
+    Rel(langgraph, database, "Reads/Writes", "Internal Calls")
+    Rel(agents, database, "Reads/Writes", "Internal Calls")
 
 }
 

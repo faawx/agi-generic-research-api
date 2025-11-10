@@ -18,7 +18,7 @@ To view the diagram:
 2. Render the diagram using the command: `plantuml Architecture.puml`
 3. Alternatively, use an online PlantUML viewer or a VSCode extension.
 
-![alt text](image.png)
+![alt text](image-1.png)
 
 ## Installation
 
