@@ -1,4 +1,4 @@
-# AGI Deep Research Backend
+# GenAI Deep Research API
 
 ## Description
 This project serves as the backend for an AGI Deep Research application, utilizing FastAPI for the API and Langchain/Langgraph for orchestrating research agents.
