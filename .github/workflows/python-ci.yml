@@ -21,6 +21,7 @@ jobs:
         with: { fetch-depth: 0 } # Needs full history to scan
       - uses: gitleaks/gitleaks-action@v2
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITLEAKS_FAIL: "true" # Fail the build if secrets are found
 
   sast-scan:
