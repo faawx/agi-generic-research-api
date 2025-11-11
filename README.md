@@ -63,6 +63,18 @@ uvicorn main:app --reload
 
 The API will be available at `http://127.0.0.1:8000`. You can access the API documentation at `http://127.0.0.1:8000/docs`.
 
+## Continuous Integration and Security
+
+This project uses GitHub Actions for Continuous Integration (CI) to ensure code quality and security. The CI pipeline, defined in `.github/workflows/python-ci.yml`, automatically runs a series of checks on every push and pull request to the `main` branch.
+
+The pipeline includes the following security scans:
+
+-   **Secret Scanning (Gitleaks)**: Scans the repository's history for any hardcoded secrets or sensitive information. The build will fail if any secrets are detected.
+-   **Static Application Security Testing (SAST)**: Uses `Bandit` to analyze the Python code for common security vulnerabilities.
+-   **Software Composition Analysis (SCA)**: Uses `Trivy` to scan the project's dependencies for known vulnerabilities. It checks for high and critical severity issues and will fail the build if any are found.
+
+These automated checks help maintain a secure and reliable codebase.
+
 ## Project Structure
 
 ```
