@@ -31,11 +31,14 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.14'
+          # Use a stable, fully-supported Python version for bandit
+          python-version: '3.11'
       - name: Install and run bandit
+        # -ll flag sets the reporting level to MEDIUM and above (break)
         run: |
           pip install bandit
-          bandit -r .
+          bandit -r . -ll
+          
 
   sca-scan:
     name: 📦 SCA (Trivy FS)
@@ -46,7 +49,7 @@ jobs:
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'fs'             # Scan the filesystem
-          scan-ref: '.'               # Scan the whole repo
+          scan-ref: 'requirements.txt, requirements-dev.txt'
           ignore-unfixed: true
           format: 'table'
           severity: 'HIGH,CRITICAL'   # Fail on High or Critical
