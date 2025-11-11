@@ -56,13 +56,9 @@ jobs:
       - name: Set up Trivy
         uses: aquasecurity/setup-trivy@v0.2.0 # This just installs the trivy binary
         
-      - name: Run Trivy scan on requirements.txt
+      - name: Run Trivy filesystem scan
         run: |
-          trivy fs --severity HIGH,CRITICAL --ignore-unfixed --exit-code 1 requirements.txt
-
-      - name: Run Trivy scan on requirements-dev.txt
-        run: |
-          trivy fs --severity HIGH,CRITICAL --ignore-unfixed --exit-code 1 requirements-dev.txt
+          trivy fs --severity HIGH,CRITICAL --ignore-unfixed --exit-code 1 .
 
   # ===================================================================
   # JOB 2: Build and Test
