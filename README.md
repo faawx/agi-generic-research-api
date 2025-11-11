@@ -69,7 +69,7 @@ This project uses GitHub Actions for Continuous Integration (CI) to ensure code 
 
 The pipeline includes the following security scans:
 
--   **Secret Scanning (Gitleaks)**: Scans the repository's history for any hardcoded secrets or sensitive information. The build will fail if any secrets are detected.
+-   **Secret Scanning (Gitleaks)**: Uses `Gitleaks` to scan the repository's history for any hardcoded secrets or sensitive information. The build will fail if any secrets are detected.
 -   **Static Application Security Testing (SAST)**: Uses `Bandit` to analyze the Python code for common security vulnerabilities.
 -   **Software Composition Analysis (SCA)**: Uses `Trivy` to scan the project's dependencies for known vulnerabilities. It checks for high and critical severity issues and will fail the build if any are found.
 
