@@ -11,19 +11,21 @@ load_dotenv()
 
 # --- Model Configuration ---
 # Default model parameters
-GEMINI_MODEL = "gemini-2.5-flash"
-DEFAULT_TEMPERATURE = 0.8
+GEMINI_MODEL = "gemini-1.5-flash"
+# A lower temperature promotes more factual and less "creative" outputs, aligning with the "Objectivity & Truthfulness" principle.
+DEFAULT_TEMPERATURE = 0.4
 DEFAULT_TOP_P = 1
 DEFAULT_TOP_K = 32
 DEFAULT_MAX_OUTPUT_TOKENS = 2048
 
 # Safety settings (adjust as needed)
 # For more details, see: https://ai.google.dev/docs/safety_guidelines
+# BLOCK_MEDIUM_AND_ABOVE is used to align with the project's strict "Harmlessness" and "Safety" principles.
 DEFAULT_SAFETY_SETTINGS = {
-    HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_ONLY_HIGH,
-    HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_ONLY_HIGH,
-    HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_ONLY_HIGH,
-    HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+    HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+    HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+    HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+    HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
 }
 
 def configure_gemini_model(
