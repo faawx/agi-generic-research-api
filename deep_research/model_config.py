@@ -11,7 +11,7 @@ load_dotenv()
 
 # --- Model Configuration ---
 # Default model parameters
-GEMINI_MODEL = "gemini-1.5-flash"
+GEMINI_MODEL = "gemini-2.5-pro"
 # A lower temperature promotes more factual and less "creative" outputs, aligning with the "Objectivity & Truthfulness" principle.
 DEFAULT_TEMPERATURE = 0.4
 DEFAULT_TOP_P = 1
